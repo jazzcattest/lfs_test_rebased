@@ -13,10 +13,10 @@ jobs:
           # do some operation that changes a file in the git repo
           date > time.txt
 
-           - name: Commit User
-            run: |
-            echo "user.name:  $(git log -1 --pretty=format:'%an')"
-            echo "user.email: $(git log -1 --pretty=format:'%ae')"
+      - name: Commit User
+        run: |
+          echo "user.name:  $(git log -1 --pretty=format:'%an')"
+          echo "user.email: $(git log -1 --pretty=format:'%ae')"
 
 
       - name: commit
