@@ -13,12 +13,12 @@ jobs:
           # do some operation that changes a file in the git repo
           date > time.txt
 
-      - name: Commit User
+      - name: setup git config
         run: |
-          echo "user.name:  $(git log -1 --pretty=format:'%an')"
-          echo "user.email: $(git log -1 --pretty=format:'%ae')"
-
-
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "jazzcat"
+          git config user.email "d_roas@hotmail.com"
+          
       - name: commit
         run: |
           # Stage the file, commit and push
