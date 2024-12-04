@@ -6,18 +6,18 @@ jobs:
     steps:
       # Checkout the branch
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: save current date
         run: |
           # do some operation that changes a file in the git repo
           date > time.txt
 
-      - name: setup git config
-        run: |
-          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
-          git config user.name "Damion Diehl"
-          git config user.email "88254484+jazzcat@users.noreply.github.com"
+           - name: Commit User
+            run: |
+            echo "user.name:  $(git log -1 --pretty=format:'%an')"
+            echo "user.email: $(git log -1 --pretty=format:'%ae')"
+
 
       - name: commit
         run: |
